@@ -49,7 +49,7 @@ def validar_producto(producto):
 
    # Resultado final
    es_valido = precio_valido and stock_valido and nombre_valido and categoria_valida
-
+    
    return (es_valido, errores)
 
 def verificar_disponibilidad(producto):
@@ -57,9 +57,9 @@ def verificar_disponibilidad(producto):
    Verifica si un producto está disponible para venta
    """
    # TODO: Implementar verificaciones
-   en_stock = False
-   activo = False
-   precio_definido = False
+   en_stock = producto['stock'] >= 1
+   activo = producto['activo']
+   precio_definido = producto['precio'] > 0
    
    return en_stock and activo and precio_definido
 
@@ -74,11 +74,11 @@ def main():
            'activo': True
        },
        {
-           'nombre': '',
-           'precio': -50,
-           'stock': 0,
-           'categoria': 'Inválida',
-           'activo': False
+           'nombre': 'Celular Samsung',
+           'precio': 50,
+           'stock': 1,
+           'categoria': 'Celulares',
+           'activo': True
        }
    ]
 
